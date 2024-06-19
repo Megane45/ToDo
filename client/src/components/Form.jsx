@@ -54,7 +54,7 @@ function Form() {
       <label>
         DeadLine:
         <input
-          type="text"
+          type="date"
           value={task.deadline}
           onChange={(event) => handleTask(event)}
           name="deadline"

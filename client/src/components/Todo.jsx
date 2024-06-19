@@ -13,7 +13,7 @@ function Todo({ task, id }) {
     }
   };
   return (
-    <div>
+    <div className={`todo ${task.completed ? "completed" : ""}`}>
       <h2>{task.task}</h2>
       <h4>Who {task.who}</h4>
       <p>DeadLine {task.deadline}</p>

@@ -33,6 +33,8 @@ router.get("/status", statusActions.browse);
 
 router.delete("/tasks/:id", itemActions.destroy);
 
+// router.put("/tasks", itemActions.edit);
+
 /* ************************************************************************* */
 
 module.exports = router;
