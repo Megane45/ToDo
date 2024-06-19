@@ -6,7 +6,7 @@ const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
     const [tasks] = await client.query(
-      "SELECT * FROM tasks INNER JOIN status ON  tasks.id_status = status.id"
+      "SELECT tasks.id, tasks.task, tasks.deadline, tasks.who, status.status FROM tasks INNER JOIN status ON  tasks.id_status = status.id"
     );
 
     // Respond with the items in JSON format
@@ -54,7 +54,7 @@ const add = async (req, res, next) => {
     );
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.status(201).json({ id: insertId[0].insertId, ...req.body });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

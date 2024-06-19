@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 import connexion from "../services/connexion";
 
 function Todo({ task, id }) {
+  const navigate = useNavigate();
   const handleDelete = async () => {
     try {
       await connexion.delete(`/api/tasks/${id}`);
+      navigate(".", { replace: true });
     } catch (error) {
       console.error(error);
     }

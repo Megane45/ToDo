@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
 import Select from "./Form/Select";
 
@@ -11,6 +12,7 @@ const initialTask = {
 
 function Form() {
   const [task, setTask] = useState(initialTask);
+  const navigate = useNavigate();
 
   const handleTask = (event) => {
     setTask((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -21,6 +23,7 @@ function Form() {
 
     try {
       await connexion.post("/api/tasks", task);
+      navigate(".", { replace: true });
     } catch (error) {
       console.error(error);
     }
