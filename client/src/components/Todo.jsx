@@ -14,7 +14,7 @@ function Todo({ task, id }) {
       <h4>Who {task.who}</h4>
       <p>DeadLine {task.deadline}</p>
       <p>Status: {task.status}</p>
-      <button type="button" onClick={handleDelete}>
+      <button type="button" value={task.id} onClick={handleDelete}>
         Delete
       </button>
     </div>

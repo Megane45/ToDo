@@ -12,7 +12,7 @@ function App() {
       <Form />
       <section>
         {tasks.map((task) => (
-          <Todo task={task} key={task.id} />
+          <Todo task={task} key={task.id} id={task.id} />
         ))}
       </section>
     </main>

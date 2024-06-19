@@ -31,7 +31,7 @@ router.post("/tasks", itemActions.add);
 
 router.get("/status", statusActions.browse);
 
-router.delete("/tasks", itemActions.destroy);
+router.delete("/tasks/:id", itemActions.destroy);
 
 /* ************************************************************************* */
 

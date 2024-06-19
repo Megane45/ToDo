@@ -63,11 +63,10 @@ const add = async (req, res, next) => {
 
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
-  const item = req.body;
   try {
     // Fetch all items from the database
     const [tasks] = await client.query("DELETE FROM tasks WHERE id=?", [
-      item.id,
+      req.params.id,
     ]);
 
     // Respond with the items in JSON format
